@@ -1,0 +1,59 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+<div class="container">
+    <mat-toolbar color="primary">
+        <button mat-icon-button (click)="sidenav.toggle()" class="menu-button" fxHide fxShow.lt-md>
+            <mat-icon>menu</mat-icon>
+        </button>
+        <img class="logo" src="/assets/img/logo/codesurferIcon.svg" />
+        <!-- <img class="logo" src="/assets/img/logo/codesurferText.svg" /> -->
+        <span>CRM Engine</span>
+
+        <span class="logout">
+            <span class="fullscreen-icon">
+                <mat-icon class="screen" (click)="fullscreenToggle()" matTooltip="full screen"
+                    [matTooltipPosition]="position.value">fullscreen</mat-icon>
+            </span>
+            <span class="settings-icon">
+                <mat-icon matTooltip="more" [matMenuTriggerFor]="more">more_vert</mat-icon>            
+            </span>
+            <span class="bell-icon">
+                <mat-icon matTooltip="notifications">notifications_none</mat-icon>
+            </span>
+
+            <button class="btnLogout" mat-mini-fab matTooltip="Codesurfer" color="accent" [matMenuTriggerFor]="Logout"
+                [matTooltipPosition]="position.value">
+                <mat-icon class="user-icon">perm_identity</mat-icon>
+            </button>
+
+            <mat-menu #Logout="matMenu">
+                <button mat-menu-item (click)="logout()">
+                    <mat-icon>power_settings_new</mat-icon>
+                    <span>Logout</span>
+                </button>
+            </mat-menu>
+
+            <mat-menu #more="matMenu" backdropClass="menuPreferences">
+                <!-- (click)="$event.stopPropagation();"  -->
+                <mat-nav-list  >
+                    <!-- <app-preference-list-item  (click)="parentEventHandlerFunction($event)" *ngFor="let item of preferences" [item]="item" ></app-preference-list-item> -->
+                    <app-preference-list-item   (onPreferenceClick)="preferenceEventHandlerFunction(preferenceItem)"  *ngFor="let preferenceItem of preferences" [preference]="preferenceItem" ></app-preference-list-item> <!-- SELECTOR prefrences-->
+                </mat-nav-list>
+            </mat-menu>
+        </span>
+    </mat-toolbar>
+
+    <mat-sidenav-container id="mainContainer">
+        <mat-sidenav #sidenav mode="side" [opened]="opened" class="sideNav">
+            <mat-nav-list >
+                <app-menu-list-item *ngFor="let item of menu" [item]="item"></app-menu-list-item> <!-- SELECTOR SIDE NAV menu list item -->
+            </mat-nav-list>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+
+
+</div>
