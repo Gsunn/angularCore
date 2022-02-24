@@ -1,0 +1,14 @@
+<!-- <div [innerHTML]="dialogContent"></div>  -->
+
+<ng-container *ngComponentOutlet="data.component"></ng-container>
+
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+</mat-dialog-actions>
+
+<!-- <div mat-dialog-content>
+  <p class="dialog.paragraph">DIALOG</p>
+  <ng-container [ngTemplateOutle]="data.template"></ng-container>
+</div> -->

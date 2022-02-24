@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit {
     }
 
     private goToRoute() {
-
+        
         let map: ParamMap = this.route.snapshot.queryParamMap
         let returnUrl = map.get('returnUrl');
         let queryParams: any = {}

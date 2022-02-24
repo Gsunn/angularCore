@@ -17,7 +17,19 @@
   width: 12px;
 }
 
+.mat-list-item{
+  /* overflow-x: hidden !important; */
+  transform: scale(1) !important;
+  transition: all .2s ease-out;
+}
+
 .mat-list-item.active {
+  transform: scale(1.08) !important;
   background: rgba(255, 255, 255, 0.151);
   color: #ffd740
 }
+
+/* .mat-list-item:hover{
+  transform: scale(1.08) !important;
+  transition: all .2s ease-in-out;
+} */

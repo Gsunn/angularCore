@@ -1,6 +1,7 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
-import { filter, map, Observable, Subscription } from 'rxjs';
+import { Component, Inject, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+
+import { filter, map, Subscription } from 'rxjs';
 import { MediaChange, MediaObserver } from "@angular/flex-layout";
 
 import { FormControl } from '@angular/forms';
@@ -12,17 +13,17 @@ import { menu } from './ui/models/menu';
 import { PreferenceItem } from './ui/models/preference-item';
 import { preferences } from './ui/models/preferences';
 
-import { MatDialog } from "@angular/material/dialog";
-import { DiaologLoaderComponent } from "../components/diaolog-loader/diaolog-loader.component";
+import { DialogLoaderService } from '../components/dialog-loader/dialog-loader.service'
+
 
 @Component({
   selector: 'app-features',
   templateUrl: './features.component.html',
-  styleUrls: ['./features.component.css']
+  styleUrls: ['./features.component.css'],
+ // encapsulation: ViewEncapsulation.None,
 })
+
 export class FeaturesComponent implements OnInit, OnDestroy {
-
-
 
   public positionOptions: MatTooltipModule[] = ['left']; // Tooltip postion
   // tslint:disable-next-line:typedef
@@ -36,7 +37,8 @@ export class FeaturesComponent implements OnInit, OnDestroy {
   fullScreen: any;
 
 
-  constructor(private media: MediaObserver, public dialog: MatDialog,
+  constructor(private media: MediaObserver, 
+              private dialogService: DialogLoaderService,
               @Inject(DOCUMENT) private document: Document | any) {
 
     this.mediaWatcher$ = this.media.asObservable()
@@ -59,25 +61,32 @@ export class FeaturesComponent implements OnInit, OnDestroy {
   }
 
   preferenceEventHandlerFunction(valueEmitted: PreferenceItem) {
-    console.log('parentEventHandlerFunction', valueEmitted);
-
-    this.opendDailog()
+    console.log('parentEventHandlerFunction', valueEmitted.iconName);
+  
+    //this.dialog.getModal(`/assets/dialogTemplates/${valueEmitted.iconName}Modal.html`)
+    this.dialogService.render(`${valueEmitted.iconName}`)
   }
 
-  opendDailog():Observable<boolean>{
-    const dialogRef = this.dialog.open(DiaologLoaderComponent, {
-      width: '26.5rem',
-      data: { 
-        dialogTitle: 'Unsaved Changes', 
-        dialogMessageLine1: 'You have unsaved changes.',
-        dialogMessageLine2: 'Are you sure you want to leave the page?',
-        yesButtonText: 'Leave this Page',
-        noButtonText: 'Stay on this Page'
-      }
-    });
+  // opendDailog(): Observable<boolean> {
 
-    return dialogRef.afterClosed();
-  }
+  //   opendDailog(){
+  //     console.log('opendDailog')
+  //     // this.dialog.getModal('/assets/dialogTemplates/testDialog.html')
+
+
+  //   // const dialogRef = this.dialog.open(DialogLoaderComponent, {
+  //   //   width: '26.5rem',
+  //   //   data: {
+  //   //     dialogTitle: 'Unsaved Changes',
+  //   //     dialogMessageLine1: 'You have unsaved changes.',
+  //   //     dialogMessageLine2: 'Are you sure you want to leave the page?',
+  //   //     yesButtonText: 'Leave this Page',
+  //   //     noButtonText: 'Stay on this Page'
+  //   //   }
+  //   // });
+
+  //   // return dialogRef.afterClosed();
+  // }
 
 
 

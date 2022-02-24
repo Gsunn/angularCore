@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DiaologLoaderComponent } from './diaolog-loader.component';
+import { DialogLoaderComponent } from './dialog-loader.component';
 
-describe('DiaologLoaderComponent', () => {
-  let component: DiaologLoaderComponent;
-  let fixture: ComponentFixture<DiaologLoaderComponent>;
+describe('DialogLoaderComponent', () => {
+  let component: DialogLoaderComponent;
+  let fixture: ComponentFixture<DialogLoaderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DiaologLoaderComponent ]
+      declarations: [ DialogLoaderComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DiaologLoaderComponent);
+    fixture = TestBed.createComponent(DialogLoaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -18,7 +18,7 @@
                 <mat-icon matTooltip="more" [matMenuTriggerFor]="more">more_vert</mat-icon>            
             </span>
             <span class="bell-icon">
-                <mat-icon matTooltip="notifications">notifications_none</mat-icon>
+                <mat-icon class="warn" matTooltip="notifications" matBadge="15" matBadgePosition="before" matBadgeColor="accent" matBadgeSize="small">notifications_none</mat-icon>
             </span>
 
             <button class="btnLogout" mat-mini-fab matTooltip="Codesurfer" color="accent" [matMenuTriggerFor]="Logout"
@@ -35,7 +35,7 @@
 
             <mat-menu #more="matMenu" backdropClass="menuPreferences">
                 <!-- (click)="$event.stopPropagation();"  -->
-                <mat-nav-list  >
+                <mat-nav-list>
                     <!-- <app-preference-list-item  (click)="parentEventHandlerFunction($event)" *ngFor="let item of preferences" [item]="item" ></app-preference-list-item> -->
                     <app-preference-list-item   (onPreferenceClick)="preferenceEventHandlerFunction(preferenceItem)"  *ngFor="let preferenceItem of preferences" [preference]="preferenceItem" ></app-preference-list-item> <!-- SELECTOR prefrences-->
                 </mat-nav-list>

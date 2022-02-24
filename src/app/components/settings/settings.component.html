@@ -1,0 +1,34 @@
+<h2 mat-dialog-title>Settings</h2>
+<div mat-dialog-content class="mat-typography">
+  <p>Slide Toggle using a simple NgModel.</p>
+
+  <mat-slide-toggle >Slide Toggle Checked:</mat-slide-toggle>
+  
+  <p>Slide Toggle inside of a Template-driven form</p>
+  
+  <form class="example-form"  (ngSubmit)="null" ngNativeValidate>
+  
+    <mat-slide-toggle ngModel name="enableWifi">Enable Wifi</mat-slide-toggle>
+    <mat-slide-toggle ngModel name="acceptTerms" required>Accept Terms of Service</mat-slide-toggle>
+    <br>
+    <button mat-raised-button type="submit">Save Settings</button>
+  </form>
+  <hr>
+  <p>Slide Toggle inside of a Reactive form</p>
+  
+  <form class="example-form"  ngNativeValidate>
+  
+    <mat-slide-toggle formControlName="darkMode">Dark mode</mat-slide-toggle>
+    <mat-slide-toggle formControlName="weather">Weather</mat-slide-toggle>
+  
+    <p>Form Group Status: </p>
+  
+    <button mat-raised-button type="submit">Save Settings</button>
+  </form>
+  
+</div>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+</mat-dialog-actions>
