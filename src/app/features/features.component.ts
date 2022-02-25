@@ -51,13 +51,10 @@ export class FeaturesComponent implements OnInit, OnDestroy {
       })
   }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
     this.fullScreen = document.documentElement;
-
   }
 
   preferenceEventHandlerFunction(valueEmitted: PreferenceItem) {
