@@ -80,6 +80,10 @@ mat-sidenav-content {
   box-shadow: 0px 0px 6px 1px #ffdd64 !important;
 }
 
+.menu-list-item:hover, .menu-list-item:active{
+  color: #ffd740;
+}
+
 .btnLogout .user-icon{
   margin-top: -4px !important;
 }

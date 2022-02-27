@@ -9,7 +9,7 @@ import { MenuListItemComponent } from '../features/ui/menu-list-item/menu-list-i
 import { PreferenceListItemComponent } from '../features/ui/preference-list-item/preference-list-item.component';
 
 import { DialogLoaderModule } from '../components/dialog-loader/dialog-loader.module';
-import { SettingsModule } from '../components/settings/settings.module';
+import { SettingsModule } from '../components/dialog-loader/settings/settings.module';
 
 
 export const routes = [

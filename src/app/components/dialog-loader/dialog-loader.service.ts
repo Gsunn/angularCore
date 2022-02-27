@@ -5,7 +5,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { BehaviorSubject } from 'rxjs';
 
 import { DialogLoaderComponent } from './dialog-loader.component';
-import { SettingsComponent } from '../settings/settings.component';
+import { SettingsComponent } from './settings/settings.component';
 
 @Injectable({
   providedIn: 'root'

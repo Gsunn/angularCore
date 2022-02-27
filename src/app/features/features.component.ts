@@ -1,4 +1,4 @@
-import { DOCUMENT } from '@angular/common';
+// import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 
 import { filter, map, Subscription } from 'rxjs';
@@ -14,7 +14,7 @@ import { PreferenceItem } from './ui/models/preference-item';
 import { preferences } from './ui/models/preferences';
 
 import { DialogLoaderService } from '../components/dialog-loader/dialog-loader.service'
-
+import { FullScreenService } from './ui/service/fullScreen.service'
 
 @Component({
   selector: 'app-features',
@@ -34,12 +34,10 @@ export class FeaturesComponent implements OnInit, OnDestroy {
   opened: boolean = true;
 
   preferences: PreferenceItem[] = preferences;
-  fullScreen: any;
-
-
+  
   constructor(private media: MediaObserver, 
               private dialogService: DialogLoaderService,
-              @Inject(DOCUMENT) private document: Document | any) {
+              private fullScreenService: FullScreenService) {
 
     this.mediaWatcher$ = this.media.asObservable()
       .pipe(
@@ -53,8 +51,10 @@ export class FeaturesComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {}
 
-  ngAfterViewInit(): void {
-    this.fullScreen = document.documentElement;
+  ngAfterViewInit(): void {}
+
+  managementAcount(){
+    console.log('managementAcount')
   }
 
   preferenceEventHandlerFunction(valueEmitted: PreferenceItem) {
@@ -109,44 +109,8 @@ export class FeaturesComponent implements OnInit, OnDestroy {
    * FULL SCREEN
    */
 
-  fullscreenToggle() {
-    if (!this.isFullScreen()) this.openFullscreen()
-    else this.closeFullscreen()
-  }
-
-  isFullScreen(): boolean {
-    const fsDoc = <any>document;
-    return !!(fsDoc.fullscreenElement || fsDoc.mozFullScreenElement || fsDoc.webkitFullscreenElement || fsDoc.msFullscreenElement);
-  }
-
-  openFullscreen() {
-    if (this.fullScreen.requestFullscreen) {
-      this.fullScreen.requestFullscreen();
-    } else if (this.fullScreen.mozRequestFullScreen) {
-      /* Firefox */
-      this.fullScreen.mozRequestFullScreen();
-    } else if (this.fullScreen.webkitRequestFullscreen) {
-      /* Chrome, Safari and Opera */
-      this.fullScreen.webkitRequestFullscreen();
-    } else if (this.fullScreen.msRequestFullscreen) {
-      /* IE/Edge */
-      this.fullScreen.msRequestFullscreen();
-    }
-  }
-
-  closeFullscreen() {
-    if (this.document.exitFullscreen) {
-      this.document.exitFullscreen();
-    } else if (this.document.mozCancelFullScreen) {
-      /* Firefox */
-      this.document.mozCancelFullScreen();
-    } else if (this.document.webkitExitFullscreen) {
-      /* Chrome, Safari and Opera */
-      this.document.webkitExitFullscreen();
-    } else if (this.document.msExitFullscreen) {
-      /* IE/Edge */
-      this.document.msExitFullscreen();
-    }
+  fullscreenTogle() {
+    this.fullScreenService.togle()
   }
 
 }

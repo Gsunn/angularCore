@@ -11,12 +11,22 @@
 
         <span class="logout">
             <span class="fullscreen-icon">
-                <mat-icon class="screen" (click)="fullscreenToggle()" matTooltip="full screen"
+                <mat-icon class="screen" (click)="fullscreenTogle()" matTooltip="full screen"
                     [matTooltipPosition]="position.value">fullscreen</mat-icon>
             </span>
+            
             <span class="settings-icon">
                 <mat-icon matTooltip="more" [matMenuTriggerFor]="more">more_vert</mat-icon>            
             </span>
+
+            <mat-menu #more="matMenu" backdropClass="menuPreferences">
+                <!-- (click)="$event.stopPropagation();"  -->
+                <mat-nav-list>
+                    <!-- <app-preference-list-item  (click)="parentEventHandlerFunction($event)" *ngFor="let item of preferences" [item]="item" ></app-preference-list-item> -->
+                    <app-preference-list-item   (onPreferenceClick)="preferenceEventHandlerFunction(preferenceItem)"  *ngFor="let preferenceItem of preferences" [preference]="preferenceItem" ></app-preference-list-item> <!-- SELECTOR prefrences-->
+                </mat-nav-list>
+            </mat-menu>
+
             <span class="bell-icon">
                 <mat-icon class="warn" matTooltip="notifications" matBadge="15" matBadgePosition="before" matBadgeColor="accent" matBadgeSize="small">notifications_none</mat-icon>
             </span>
@@ -27,18 +37,14 @@
             </button>
 
             <mat-menu #Logout="matMenu">
+                <button mat-menu-item (click)="managementAcount()">
+                    <mat-icon>manage_accounts</mat-icon>
+                    <span>Account</span>
+                </button>
                 <button mat-menu-item (click)="logout()">
                     <mat-icon>power_settings_new</mat-icon>
                     <span>Logout</span>
                 </button>
-            </mat-menu>
-
-            <mat-menu #more="matMenu" backdropClass="menuPreferences">
-                <!-- (click)="$event.stopPropagation();"  -->
-                <mat-nav-list>
-                    <!-- <app-preference-list-item  (click)="parentEventHandlerFunction($event)" *ngFor="let item of preferences" [item]="item" ></app-preference-list-item> -->
-                    <app-preference-list-item   (onPreferenceClick)="preferenceEventHandlerFunction(preferenceItem)"  *ngFor="let preferenceItem of preferences" [preference]="preferenceItem" ></app-preference-list-item> <!-- SELECTOR prefrences-->
-                </mat-nav-list>
             </mat-menu>
         </span>
     </mat-toolbar>
