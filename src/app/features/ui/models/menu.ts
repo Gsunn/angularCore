@@ -22,6 +22,16 @@ export let menu: NavItem[] = [
         route: 'engine'
     },
     {
+        displayName: 'Resize H',
+        iconName: 'horizontal_distribute',
+        route: 'resize-h'
+    },
+    {
+        displayName: 'Resize V',
+        iconName: 'vertical_distribute',
+        route: 'resize-v'
+    },
+    {
         displayName: 'User',
         iconName: 'face',
         route: 'user',

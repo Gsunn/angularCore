@@ -11,14 +11,15 @@ import { PreferenceListItemComponent } from '../features/ui/preference-list-item
 import { DialogLoaderModule } from '../components/dialog-loader/dialog-loader.module';
 import { SettingsModule } from '../components/dialog-loader/settings/settings.module';
 
-
 export const routes = [
     { path: '', component: FeaturesComponent, pathMatch: 'full' }
 ];
 
 @NgModule({
     declarations: [
-        FeaturesComponent, MenuListItemComponent, PreferenceListItemComponent,
+        FeaturesComponent, 
+        MenuListItemComponent, 
+        PreferenceListItemComponent
     ],
   imports: [
       CommonModule, MatSharedModule, 

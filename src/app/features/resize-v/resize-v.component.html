@@ -1,0 +1,13 @@
+<div id="flex-container">
+  <div class="flex-item" #topElement style="background-color:aqua">
+    <h2>Flex container-1</h2>
+  </div>
+
+  <div class="grabber" appResize [topResize]="topElement" [bottomResize]="bottomElement">
+    <span></span>
+  </div>
+
+  <div class="flex-item" #bottomElement style="background-color:rgb(152, 53, 245)">
+    <h2>Flex container-2</h2>
+  </div>
+</div>

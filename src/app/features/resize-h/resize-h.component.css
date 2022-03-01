@@ -1,0 +1,54 @@
+/* .flexContent {
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  } */
+  
+
+#flex-container{
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+}
+  
+.flex-item{
+  flex:1 1 auto;
+  /* border: 1px solid black; */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* height: 100%; */
+}
+
+.grabber{
+   width: 8px;
+   background-color: #ffd640b2;  
+}
+
+.grabber:hover{
+  cursor:col-resize;
+}
+
+.grabber span {
+  position: absolute;
+  box-sizing: border-box;
+  display: block;
+  border: 1px solid #7713e9;
+  border-width: 0 1px; /* Cambiar el 0 por 1 para porner en horizontal*/
+  top: 50%;
+  /* margin-top: -10px; */
+  /* margin: -10px 0 0 3.5px; */
+  height: 20px;
+  width: 4px;
+  margin-left: 2px;
+}
+
+.side-panel{
+  background-color: #ffd740;  
+}
+

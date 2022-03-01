@@ -8,7 +8,9 @@
 }
 
 .menu-item-text {
-  font-size: 10pt;
+  font-size: 12pt;
+  font-weight: 400;
+
 }
 
 .menu-twistie {
@@ -26,8 +28,15 @@
 .mat-list-item.active {
   transform: scale(1.08) !important;
   background: rgba(255, 255, 255, 0.151);
-  color: #ffd740
+  /* color: #ffd740 */
 }
+
+.active mat-icon{
+  -webkit-text-stroke: .1px #e9b703;
+  color: #ffd740
+
+}
+
 
 /* .mat-list-item:hover{
   transform: scale(1.08) !important;

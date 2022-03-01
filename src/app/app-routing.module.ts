@@ -17,6 +17,8 @@ const routes: Routes = [
             { path: 'audio',  loadChildren: () => import('./features/audio/audio.module').then(m => m.AudioModule) },
             { path: 'dashboard', loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule) },
             { path: 'engine',  loadChildren: () => import('./features/engine/engine.module').then(m => m.EngineModule) },
+            { path: 'resize-h', loadChildren: () => import('./features/resize-h/resize-h.module').then(m => m.ResizeHModule) },
+            { path: 'resize-v', loadChildren: () => import('./features/resize-v/resize-v.module').then(m => m.ResizeVModule) },
             { path: 'home',  loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
             { path: 'user', loadChildren: () => import('./features/user/user.module').then(m => m.UserModule) },
         ]
