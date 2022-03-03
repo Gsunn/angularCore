@@ -10,7 +10,12 @@
 .menu-item-text {
   font-size: 12pt;
   font-weight: 400;
+}
 
+.active .menu-item-text{
+  color: #c2185b;
+  font-weight: 800;
+  /* mix-blend-mode: difference; */
 }
 
 .menu-twistie {
@@ -25,20 +30,28 @@
   transition: all .2s ease-out;
 }
 
+.mat-list-item:hover mat-icon{
+  /* transform: scale(1.08) !important;
+  transition: all .2s ease-in-out; */
+  -webkit-text-stroke: .1px #e9b703;
+  color: #ffd740
+}
+
+
+
 .mat-list-item.active {
   transform: scale(1.08) !important;
   background: rgba(255, 255, 255, 0.151);
-  /* color: #ffd740 */
 }
+
+
+
 
 .active mat-icon{
   -webkit-text-stroke: .1px #e9b703;
   color: #ffd740
-
 }
 
 
-/* .mat-list-item:hover{
-  transform: scale(1.08) !important;
-  transition: all .2s ease-in-out;
-} */
+
+

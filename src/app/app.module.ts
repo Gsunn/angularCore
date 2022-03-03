@@ -1,19 +1,18 @@
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
-
 import { MatSharedModule } from './shared/mat-shared.module'
 
+import { LoginModule } from './login/login.module'
 import { LoaderModule } from './components/loader/loader.module';
 import { FeaturesModule } from './features/features.module';
-import { LoginModule } from './login/login.module'
 // import { DialogLoaderModule } from './components/dialog-loader/dialog-loader.module';
 
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [

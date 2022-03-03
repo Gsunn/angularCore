@@ -16,16 +16,15 @@ export class LoaderService {
     this.loader.next({id, status})
   }
 
-/*
+
   public showLoader(id: string = 'global'):void{    
-    console.log(this.loader.value.status);
+    // console.log(this.loader.value.status);
     this.loader.next({id, status: true})
   }
 
 
   public hideLoader(id: string = 'global'):void{
-  
     this.loader.next({id, status: false})
   }
-  */
+  
 }

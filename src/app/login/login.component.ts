@@ -20,11 +20,14 @@ export class LoginComponent implements OnInit {
     formSubmitted: boolean = false;
     formSubmitted$ = new Subject<boolean>();
 
-    constructor(private fb: FormBuilder, private authenticationService: AuthenticationService,
-        private router: Router, private route: ActivatedRoute, private urlService: UrlService,
-        private loaderService: LoaderService) {
-
-    }
+    constructor(
+        private authenticationService: AuthenticationService,
+        private fb: FormBuilder,
+        private loaderService: LoaderService,
+        private router: Router,
+        private route: ActivatedRoute,
+        private urlService: UrlService,
+    ){}
 
     ngOnInit() {
         this.form = this.fb.group({
@@ -70,7 +73,7 @@ export class LoginComponent implements OnInit {
     }
 
     private goToRoute() {
-        
+
         let map: ParamMap = this.route.snapshot.queryParamMap
         let returnUrl = map.get('returnUrl');
         let queryParams: any = {}

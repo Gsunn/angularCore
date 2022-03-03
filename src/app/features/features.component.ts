@@ -1,5 +1,5 @@
 // import { DOCUMENT } from '@angular/common';
-import { Component, Inject, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 
 import { filter, map, Subscription } from 'rxjs';
 import { MediaChange, MediaObserver } from "@angular/flex-layout";

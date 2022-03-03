@@ -1,14 +1,23 @@
+<div id="flex-container">
 
-  <div id="flex-container">
-    <div class="flex-item" #leftElement  style="background-color:aqua">
-      <h2>Flex container-1</h2>
+  <div class="flex-item" #leftElement style="background-color:aqua">
+    <h2>Flex container-1</h2>
+    <div class="">
+      <button mat-raised-button color="accent" (click)="showLoader('leftLoader')">Accent</button>
     </div>
-
-    <div class="grabber" appResize [leftResize]="leftElement" [rightResize]="rightElement">
-      <span></span>
-    </div>
-    
-    <div class="flex-item" #rightElement style="background-color:rgb(152, 53, 245)">
-      <h2>Flex container-2</h2>
-    </div>
+    <app-loader [id]="'leftLoader'" class="posRealtive"></app-loader>
   </div>
+
+  <div class="grabber" appResize [leftResize]="leftElement" [rightResize]="rightElement">
+    <span></span>
+  </div>
+
+  <div class="flex-item" #rightElement style="background-color:rgb(152, 53, 245)">
+    <h2>Flex container-2</h2>
+    <div>
+      <button mat-raised-button color="warn" (click)="showLoader('rightLoader')">Warn</button>
+    </div>
+    <app-loader [id]="'rightLoader'" class="posRealtive"></app-loader>
+  </div>
+
+</div>
