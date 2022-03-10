@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { EngineComponent } from './engine.component';
+import { EngineComponent } from './engine/engine.component';
 
 export const routes = [
   { path: '', component: EngineComponent, pathMatch: 'full' }

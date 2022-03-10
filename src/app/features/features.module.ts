@@ -11,6 +11,8 @@ import { PreferenceListItemComponent } from '../features/ui/preference-list-item
 import { DialogLoaderModule } from '../components/dialog-loader/dialog-loader.module';
 import { SettingsModule } from '../components/dialog-loader/settings/settings.module';
 
+import { EngineModule } from './engine/engine.module'
+
 export const routes = [
     { path: '', component: FeaturesComponent, pathMatch: 'full' }
 ];
@@ -23,6 +25,7 @@ export const routes = [
     ],
   imports: [
       CommonModule, MatSharedModule, 
+      EngineModule,
       RouterModule.forChild(routes)
     ],
     entryComponents: [ DialogLoaderModule, SettingsModule]

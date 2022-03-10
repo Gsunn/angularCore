@@ -1,6 +1,7 @@
 <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /> -->
 
 <div class="container">
+    
     <mat-toolbar color="primary">
         <button mat-icon-button (click)="sidenav.toggle()" class="menu-button" fxHide fxShow.lt-md>
             <mat-icon>menu</mat-icon>
@@ -50,15 +51,19 @@
     </mat-toolbar>
 
     <mat-sidenav-container id="mainContainer">
+
+        <!-- menu lateral -->
         <mat-sidenav #sidenav mode="side" [opened]="opened" class="sideNav">
             <mat-nav-list >
                 <app-menu-list-item *ngFor="let item of menu" [item]="item"></app-menu-list-item> <!-- SELECTOR SIDE NAV menu list item -->
             </mat-nav-list>
         </mat-sidenav>
 
+        <!-- contendor -->
         <mat-sidenav-content>
             <router-outlet></router-outlet>
         </mat-sidenav-content>
+
     </mat-sidenav-container>
 
 
